@@ -1,0 +1,37 @@
+reviewed: 2023-01-01
+defaults:
+  maxPeriod: P5Y
+  specialMaxPeriod: P1Y
+categories:
+  - id: account
+  - id: health
+    special: true
+  - id: chat
+  - id: legacy
+systems:
+  - id: postgres
+    categories: [account, health, chat, marketing]
+rules:
+  - category: account
+    period: P2Y
+    action: delete
+    basis: contract
+    trigger: account-closure
+    owner: platform
+  - category: account
+    period: P10Y
+    action: delete
+    basis: contract
+    trigger: account-closure
+    owner: platform
+  - category: health
+    period: P3Y
+    action: shred-later
+    trigger: collection
+  - category: marketing
+    period: forever
+    basis: consent
+  - category: invoices
+    system: s3
+    period: soon
+    action: delete

@@ -1,0 +1,44 @@
+# Example data-retention policy
+owner: privacy-team
+reviewed: 2026-06-01
+reviewEveryMonths: 12
+defaults:
+  maxPeriod: P7Y
+  specialMaxPeriod: P1Y
+categories:
+  - id: account
+    name: Account profile
+  - id: orders
+    name: Order and invoice records
+  - id: health
+    name: Health declarations
+    special: true
+  - id: metrics
+    personal: false
+systems:
+  - id: postgres
+    owner: platform
+    categories: [account, orders, health]
+  - id: warehouse
+    categories: [orders, metrics]
+rules:
+  - category: account
+    period: P2Y
+    trigger: account-closure
+    action: delete
+    basis: "contract; legitimate interest (support)"
+  - category: orders
+    period: 6 years
+    trigger: end-of-financial-year
+    action: archive
+    basis: "HMRC record keeping: 6 years"
+  - category: health
+    period: P90D
+    trigger: collection
+    action: delete
+    basis: explicit consent
+  - category: metrics
+    period: P3Y
+    trigger: collection
+    action: aggregate
+    basis: legitimate interest (capacity planning)

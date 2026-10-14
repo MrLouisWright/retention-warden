@@ -1,0 +1,54 @@
+{
+  "name": "retention-warden",
+  "version": "1.0.0",
+  "description": "Lint a declarative data-retention policy (YAML or JSON): missing or invalid periods, indefinite retention, conflicting rules, data categories held in systems with no rule, unknown categories/systems, missing legal basis, expiry action, trigger and owner, over-long periods, overdue reviews. SARIF, GitHub Action. Zero deps.",
+  "type": "module",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "retention-warden": "bin/retention-warden.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "action.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [
+    "data-retention",
+    "retention-policy",
+    "gdpr",
+    "storage-limitation",
+    "privacy",
+    "compliance",
+    "policy-as-code",
+    "yaml",
+    "sarif",
+    "github-action"
+  ],
+  "author": "Louis Wright <hello@louiswright.co.uk> (https://github.com/MrLouisWright)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrLouisWright/retention-warden.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MrLouisWright/retention-warden/issues"
+  },
+  "homepage": "https://github.com/MrLouisWright/retention-warden#readme"
+}
