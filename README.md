@@ -1,5 +1,7 @@
 # retention-warden
 
+[![npm version](https://img.shields.io/npm/v/retention-warden.svg)](https://www.npmjs.com/package/retention-warden) [![CI](https://github.com/MrLouisWright/retention-warden/actions/workflows/ci.yml/badge.svg)](https://github.com/MrLouisWright/retention-warden/actions/workflows/ci.yml) [![Node](https://img.shields.io/node/v/retention-warden.svg)](https://nodejs.org) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 > Lint your data-retention policy as code: every data category gets a period, a legal basis and an action at expiry.
 
 GDPR's storage-limitation principle, the UK GDPR and most security questionnaires ask the same thing: how long do you keep each kind of personal data, why, and what happens afterwards? The answer usually lives in a spreadsheet that drifts away from the systems it describes. `retention-warden` reads a small, declarative `retention.yml` (categories, systems and rules), checks it is complete and consistent, and fails CI when someone adds a new data category without a rule or sets an over-long or indefinite period.
