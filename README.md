@@ -164,12 +164,20 @@ The action runs the bundled CLI with Node 20; it has no dependencies to install.
 
 ## Library
 
+Install it in your project first:
+
+```bash
+npm install --save-dev retention-warden
+```
+
 ```js
 import { check, lintPolicy, parsePeriod } from "retention-warden";
 parsePeriod("P2Y"); // { days: 730.5 }
 const report = check("retention.yml");
 console.log(report.counts, report.findings);
 ```
+
+The package is ESM-only (there is no CommonJS build): use `import`, or `await import("retention-warden")` from CommonJS.
 
 Types are included.
 
